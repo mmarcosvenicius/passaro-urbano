@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlApi: 'https://my-json-server.typicode.com/mmarcosvenicius/json-database'
 };

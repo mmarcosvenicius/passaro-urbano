@@ -1,0 +1,49 @@
+<div class="fixed-top">
+    <nav class="navbar navbar-light bg-faded">
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-md-4">
+                    <a routerLink="" class="navbar-brand">
+                        <img src="/assets/logo.png" />
+                    </a>
+                </div>
+                <!--
+                    Pipes Examples
+                    | json, uppercase, lowercase, percent, date:'dd/MM/yyyy', currency:'BRL':true, slice:0:4, async
+                -->
+                <div class="col-md-6">
+                    <input #search (keyup)="pesquisar(search)" type="search" class="form-control mt-3" placeholder="Pesquisar oferta">
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" aria-current="true"
+                            *ngFor="let oferta of ofertas | async"
+                            [routerLink]="['/oferta', oferta.id]"
+                            (click)="limparPesquisa()"
+                        >
+                          {{oferta.descricao | descricaoReduzida:53 | uppercase}}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a class="mt-2" routerLink="/ordem-compra"><img src="/assets/carrinho.png" /></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/restaurantes']" routerLinkActive="active">Restaurantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/diversao" routerLinkActive="active">Diversão</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="banner">
+    <img src="/assets/banners/img_1.jpg" />
+</div>
